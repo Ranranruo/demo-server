@@ -1,20 +1,17 @@
+server:
+  port: 9000
+
 spring:
   application:
     name: config-service
-
   config:
     import: optional:file:.env[.properties]
-
   cloud:
     config:
       server:
         git:
           uri: ${GIT_URI}
-          # 로컬 ~/.ssh 설정 무시하고 아래 프로퍼티 사용
-          ignore-local-ssh-settings: true
+          ignoreLocalSshSettings: true
           private-key: ${GIT_PRIVATE_KEY}
           clone-on-start: true
           default-label: master
-
-server:
-  port: 9000
